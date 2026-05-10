@@ -8,13 +8,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="🔥 LỘ CLIP: Bé Thảo Cồn Dê Nha Trang cùng Đại ca giang hồ" />
     <meta property="og:description" content="Full clip dài từ lúc bắt đầu đến lúc lên đỉnh. Anh em xem nhanh kẻo bị xóa, đừng share ra ngoài nha!" />
-    <meta property="og:image" content="bethao.jpg" />
+    <meta property="og:image" content="https://be-thao-nhatrang.netlify.app/bethao.jpg" />
     <meta name="twitter:card" content="summary_large_image">
 
     <style>
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
             font-family: Arial, sans-serif;
+            /* Cài đặt hình nền luôn cố định và bao phủ toàn màn hình */
             background: #000 url('bethao.jpg') no-repeat center center fixed;
             background-size: cover;
             overflow: hidden;
@@ -22,108 +23,133 @@
 
         .overlay {
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            /* Tinh chỉnh lớp phủ tối: chỉ đủ để nổi chữ, vẫn nhìn rõ ảnh nền nhạy cảm */
+            background: rgba(0, 0, 0, 0.4); 
             display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
+            justify-content: space-between; /* Đưa nội dung ra 2 đầu */
+            align-items: center;
             text-align: center; color: white;
-            padding: 20px; box-sizing: border-box;
+            padding: 15px; box-sizing: border-box;
+            backdrop-filter: blur(1px); /* Thêm hiệu ứng mờ cực nhẹ cho ảnh nền thêm huyền ảo */
         }
 
-        /* Khung giả trình phát video */
+        /* KHUNG VIDEO: Đã thu nhỏ và đưa lên trên */
+        .video-box-wrapper {
+            width: 100%;
+            display: flex; justify-content: center;
+            margin-top: 10px; /* Cách đỉnh màn hình 1 chút */
+        }
+
         .video-box {
             position: relative;
-            width: 100%;
-            max-width: 500px;
+            width: 80%; /* Thu nhỏ chiều rộng khung video trên mobile */
+            max-width: 320px; /* Giới hạn kích thước tối đa */
             aspect-ratio: 16 / 9;
-            background: #111;
-            border-radius: 10px;
-            border: 2px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex; justify-content: center; align-items: center;
             cursor: pointer;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            transition: 0.3s;
         }
 
-        /* Nút Play khổng lồ */
+        .video-box:hover { transform: scale(1.05); }
+
+        /* Nút Play */
         .play-btn {
-            width: 80px; height: 80px;
+            width: 60px; height: 60px;
             background: rgba(255, 0, 0, 0.9);
             border-radius: 50%;
-            display: flex;
-            justify-content: center; align-items: center;
-            transition: 0.3s;
+            display: flex; justify-content: center; align-items: center;
             animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
         }
 
         .play-btn::after {
             content: '';
-            border-left: 25px solid white;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            margin-left: 8px;
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 6px;
+        }
+
+        /* PHẦN CHỮ NỘI DUNG: Đã thu nhỏ và đưa xuống dưới */
+        .content-wrapper {
+            width: 100%;
+            margin-bottom: 20px; /* Cách đáy màn hình */
+            background: rgba(0, 0, 0, 0.6); /* Thêm nền mờ cho phần chữ dễ đọc hơn */
+            padding: 15px;
+            border-radius: 10px;
+            box-sizing: border-box;
         }
 
         h1 {
-            font-size: 20px;
-            margin-top: 25px;
-            color: #ff4757;
-            text-transform: uppercase;
+            font-size: 18px; margin: 0 0 10px 0;
+            color: #ff4757; text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .content-text {
-            font-size: 15px;
-            line-height: 1.6;
-            max-width: 450px;
-            margin: 15px 0;
-            color: #ccc;
+            font-size: 13px; line-height: 1.5;
+            color: #eee; margin: 0;
         }
 
         .warning {
-            color: #ffcc00;
-            font-weight: bold;
-            font-size: 18px;
-            text-decoration: underline;
-            margin-top: 10px;
+            color: #ffcc00; font-weight: bold;
+            font-size: 16px; text-decoration: underline;
+            margin-top: 12px; cursor: pointer;
+            display: inline-block;
+            animation: blink 1s infinite alternate;
         }
 
-        .footer-info {
-            position: absolute;
-            bottom: 20px;
-            font-size: 12px;
-            color: #666;
+        @keyframes blink { from { opacity: 1; } to { opacity: 0.7; } }
+
+        .footer-info { font-size: 10px; color: #999; margin-top: 10px; }
+
+        /* Tối ưu riêng cho máy tính màn hình lớn */
+        @media (min-width: 768px) {
+            .overlay { justify-content: center; }
+            .video-box { width: 100%; max-width: 480px; margin-top: 0; margin-bottom: 25px; }
+            .play-btn { width: 80px; height: 80px; }
+            .content-wrapper { width: auto; max-width: 550px; margin-bottom: 0; padding: 25px; }
+            h1 { font-size: 24px; }
+            .content-text { font-size: 16px; }
+            .warning { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
     <div class="overlay">
-        <div class="video-box" onclick="goToLink()">
-            <div class="play-btn"></div>
-            <div style="position: absolute; bottom: 10px; left: 15px; font-size: 12px;">00:00 / 14:35</div>
+        <div class="video-box-wrapper">
+            <div class="video-box" onclick="goToLink()">
+                <div class="play-btn"></div>
+                <div style="position: absolute; bottom: 8px; left: 12px; font-size: 11px; color: #ccc;">00:00 / 14:35</div>
+            </div>
         </div>
 
-        <h1>🔥 CLIP NÓNG BÉ THẢO (NHA TRANG)</h1>
-        
-        <div class="content-text">
-            Bé Thảo ở <b>Cồn Dê - Nha Trang</b> bị lộ clip nhạy cảm với đại ca giang hồ có tiếng. 
-            Full bản dài từ lúc dạo đầu đến lúc lên đỉnh cực nét. 
-            <br><br>
-            <span style="color: #fff;">Mấy bạn xem thôi đừng share ra ngoài nha, tội em nó!</span>
-        </div>
+        <div class="content-wrapper">
+            <h1>🔥 CLIP NÓNG BÉ THẢO (NHA TRANG)</h1>
+            
+            <div class="content-text">
+                Bé Thảo ở <b>Cồn Dê - Nha Trang</b> bị lộ clip nhạy cảm với đại ca giang hồ. Full bản dài cực nét từ lúc bắt đầu đến lúc lên đỉnh.
+                <br><br>
+                <span style="color: #fff;">Mấy bạn xem thôi đừng share ra ngoài nha, tội em nó!</span>
+            </div>
 
-        <div class="warning" onclick="goToLink()">
-            👉 XEM NGAY KẺO BỊ XÓA 👈
-        </div>
+            <div class="warning" onclick="goToLink()">
+                👉 XEM NGAY KẺO BỊ XÓA 👈
+            </div>
 
-        <div class="footer-info">
-            Đã có 128,452 lượt xem • Tải lên 2 giờ trước
+            <div class="footer-info">
+                Đã có 128,452 lượt xem • Tải lên 2 giờ trước
+            </div>
         </div>
     </div>
 
