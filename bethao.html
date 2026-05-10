@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CLIP HOT: Bé Thảo Cồn Dê Nha Trang</title>
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="🔥 LỘ CLIP: Bé Thảo Cồn Dê Nha Trang cùng Đại ca giang hồ" />
+    <meta property="og:description" content="Full clip dài từ lúc bắt đầu đến lúc lên đỉnh. Anh em xem nhanh kẻo bị xóa, đừng share ra ngoài nha!" />
+    <meta property="og:image" content="bethao.jpg" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: Arial, sans-serif;
+            background: #000 url('bethao.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .overlay {
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; color: white;
+            padding: 20px; box-sizing: border-box;
+        }
+
+        /* Khung giả trình phát video */
+        .video-box {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16 / 9;
+            background: #111;
+            border-radius: 10px;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Nút Play khổng lồ */
+        .play-btn {
+            width: 80px; height: 80px;
+            background: rgba(255, 0, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center; align-items: center;
+            transition: 0.3s;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+
+        .play-btn::after {
+            content: '';
+            border-left: 25px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 8px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-top: 25px;
+            color: #ff4757;
+            text-transform: uppercase;
+        }
+
+        .content-text {
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 450px;
+            margin: 15px 0;
+            color: #ccc;
+        }
+
+        .warning {
+            color: #ffcc00;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: underline;
+            margin-top: 10px;
+        }
+
+        .footer-info {
+            position: absolute;
+            bottom: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay">
+        <div class="video-box" onclick="goToLink()">
+            <div class="play-btn"></div>
+            <div style="position: absolute; bottom: 10px; left: 15px; font-size: 12px;">00:00 / 14:35</div>
+        </div>
+
+        <h1>🔥 CLIP NÓNG BÉ THẢO (NHA TRANG)</h1>
+        
+        <div class="content-text">
+            Bé Thảo ở <b>Cồn Dê - Nha Trang</b> bị lộ clip nhạy cảm với đại ca giang hồ có tiếng. 
+            Full bản dài từ lúc dạo đầu đến lúc lên đỉnh cực nét. 
+            <br><br>
+            <span style="color: #fff;">Mấy bạn xem thôi đừng share ra ngoài nha, tội em nó!</span>
+        </div>
+
+        <div class="warning" onclick="goToLink()">
+            👉 XEM NGAY KẺO BỊ XÓA 👈
+        </div>
+
+        <div class="footer-info">
+            Đã có 128,452 lượt xem • Tải lên 2 giờ trước
+        </div>
+    </div>
+
+    <script>
+        function goToLink() {
+            // Chuyển hướng sang trang t.html của bạn
+            window.location.href = "t.html";
+        }
+    </script>
+
+</body>
+</html>
